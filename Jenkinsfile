@@ -9,12 +9,12 @@ node {
 
        stage('BuildArtifact'){
 
-          sh 'mvn install'
+          bat 'mvn install'
        }
 	   
       stage('Sonar') {
                     //add stage sonar
-                    sh 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar'
                 }
        
 }
