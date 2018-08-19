@@ -9,8 +9,12 @@ node {
 
        stage('BuildArtifact'){
 
-          sh 'mvn install'
+          sh 'mvn deploy'
        }
+	
+	stage('SonarScannner'){
+		sh 'mvn sonar:sonar'
+	}
 	stage('Deploy-To-Tomcat'){
 	     
       	sshagent(['00a60540-6fd0-4533-ae6e-3aee64dc06c0']) {
