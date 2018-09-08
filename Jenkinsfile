@@ -16,7 +16,6 @@ node {
 		sh 'docker build -t madan2488/dockertomcat:2.0 .'
 	}
 	stage('pushdockerimage'){
-	{
 		withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
     // some block
 			sh "docker login -u madan2488 -p ${dockerHubpwd}"
