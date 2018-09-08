@@ -22,6 +22,13 @@ node {
 		}
 		sh 'docker push madan2488/dockertomcat:2.0'
 	}
+	stage('RuncontaineronDevServer'){
+	      
+		def dockerRun = 'docker run -p 8080:8080 -d --name my-app madan2488/dockertomcat:2.0'
+		sshagent(['00a60540-6fd0-4533-ae6e-3aee64dc06c0']) {
+			sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.14.4 ${dockerRun}"
+		}
+	      }
 	
 	//stage('SonarScannner'){
 		//sh 'mvn sonar:sonar'
