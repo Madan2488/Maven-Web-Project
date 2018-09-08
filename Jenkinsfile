@@ -13,7 +13,7 @@ node {
        }
 	stage('DockerImage')
 	{
-		sh 'docker buid -t madan2488/dockertomcat:2.0 .'
+		sh 'docker build -t madan2488/dockertomcat:2.0 .'
 	}
 	
 	//stage('SonarScannner'){
